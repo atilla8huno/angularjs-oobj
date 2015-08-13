@@ -12,8 +12,34 @@ function BootstrapCtrl($scope, $growl) {
     $scope.pessoa.sobrenome = '';
     $scope.pessoa.dataNascimento = '';
     $scope.pessoa.sexo = '';
+    $scope.pessoa.cor = '';
 
     $scope.pessoas = [];
+
+    $scope.gridItemClick = function(row, col, colIndex) {
+    };
+
+    $scope.gridOptions = {
+        data: 'pessoas',
+        columnDefs: [
+            { name: 'Nome', field: 'nome', cellTemplate: 'cellTamplate.html' },
+            { name: 'Sobrenome', field: 'sobrenome' },
+            { name: 'Data de Nascimento', field: 'dataNascimento' },
+            { name: 'Sexo', field: 'sexo' },
+            { name: 'Cor', rowTemplate: 'rowTamplateStyle.html' },
+            { name: 'Ações', cellTemplate: 'cellTamplateButton.html' }
+        ],
+        enableRowSelection: true,
+        enableColumnMenus: false
+    };
+
+    $scope.getRowStyle = function (row) {
+        var rowStyle = {};
+        if (angular.isDefined(row.entity.cor)) {
+            rowStyle.backgroundColor = row.entity.cor;
+        }
+        return rowStyle;
+    };
 
     $scope.salvar = function() {
         if ($scope.myForm.$invalid) {
@@ -30,6 +56,11 @@ function BootstrapCtrl($scope, $growl) {
 
     $scope.excluir = function() {
         $scope.pessoas.splice($scope.pessoas.indexOf($scope.pessoa), 1);
+        $scope.limpar();
+    };
+
+    $scope.excluirPessoa = function(pessoa) {
+        $scope.pessoas.splice($scope.pessoas.indexOf(pessoa), 1);
         $scope.limpar();
     };
 
