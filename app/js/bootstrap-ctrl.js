@@ -24,9 +24,8 @@ function BootstrapCtrl($scope, $growl) {
         columnDefs: [
             { name: 'Nome', field: 'nome', cellTemplate: 'cellTamplate.html' },
             { name: 'Sobrenome', field: 'sobrenome' },
-            { name: 'Data de Nascimento', field: 'dataNascimento' },
+            { name: 'Data de Nascimento', cellTemplate: 'cellTamplateData.html' },
             { name: 'Sexo', field: 'sexo' },
-            { name: 'Cor', field: 'cor' },
             { name: 'Ações', cellTemplate: 'cellTamplateButton.html' }
         ],
         enableRowSelection: true,

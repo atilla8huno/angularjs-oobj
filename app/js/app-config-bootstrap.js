@@ -1,4 +1,4 @@
 /**
  * Created by ATILLA on 10/08/2015.
  */
-angular.module('bootstrapApp', ['ngMessages', 'ui.growl', 'ui.grid', 'ui.grid.resizeColumns', 'ui.grid.selection']);
+angular.module('bootstrapApp', ['ngMessages', 'ui.growl', 'ui.grid', 'ui.grid.resizeColumns', 'ui.grid.selection', 'ngMaterial']);
