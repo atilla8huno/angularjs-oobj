@@ -26,14 +26,15 @@ function BootstrapCtrl($scope, $growl) {
             { name: 'Sobrenome', field: 'sobrenome' },
             { name: 'Data de Nascimento', field: 'dataNascimento' },
             { name: 'Sexo', field: 'sexo' },
-            { name: 'Cor', rowTemplate: 'rowTamplateStyle.html' },
+            { name: 'Cor', field: 'cor' },
             { name: 'Ações', cellTemplate: 'cellTamplateButton.html' }
         ],
         enableRowSelection: true,
-        enableColumnMenus: false
+        enableColumnMenus: false,
+        rowTemplate: 'rowTamplateStyle.html'
     };
 
-    $scope.getRowStyle = function (row) {
+    $scope.getRowStyle = function(row) {
         var rowStyle = {};
         if (angular.isDefined(row.entity.cor)) {
             rowStyle.backgroundColor = row.entity.cor;
