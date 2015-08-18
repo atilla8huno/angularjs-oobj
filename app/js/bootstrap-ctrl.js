@@ -4,9 +4,9 @@
 angular.module('bootstrapApp')
         .controller('BootstrapCtrl', BootstrapCtrl);
 
-BootstrapCtrl.$inject = ['$scope', '$growl', '$rootScope'];
+BootstrapCtrl.$inject = ['$scope', '$growl', '$rootScope', '$state'];
 
-function BootstrapCtrl($scope, $growl, $rootScope) {
+function BootstrapCtrl($scope, $growl, $rootScope, $state) {
 
     $rootScope.$on('$stateChangeStart',
         function (event, toState, toParams, fromParams) {
@@ -17,6 +17,12 @@ function BootstrapCtrl($scope, $growl, $rootScope) {
     $rootScope.$on('$stateChangeSuccess',
         function (event, toState, toParams, fromParams) {
             console.log('event changed!');
+        }
+    );
+
+    $rootScope.$on('$stateNotFound',
+        function (event, unfoundState, toParams, fromParams) {
+            $state.go("home");
         }
     );
 

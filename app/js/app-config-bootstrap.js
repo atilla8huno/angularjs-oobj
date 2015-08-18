@@ -76,7 +76,7 @@ function config($stateProvider, $urlRouterProvider) {
     };
 
     var pessoaCadastro = {
-        url: '/pesquisa',
+        url: '/cadastro',
         templateUrl: 'app/views/pessoa/cadastro-pessoa.html',
         resolve: {
             deps: function($ocLazyLoad) {
