@@ -4,9 +4,22 @@
 angular.module('bootstrapApp')
         .controller('BootstrapCtrl', BootstrapCtrl);
 
-BootstrapCtrl.$inject = ['$scope', '$growl'];
+BootstrapCtrl.$inject = ['$scope', '$growl', '$rootScope'];
 
-function BootstrapCtrl($scope, $growl) {
+function BootstrapCtrl($scope, $growl, $rootScope) {
+
+    $rootScope.$on('$stateChangeStart',
+        function (event, toState, toParams, fromParams) {
+            console.log(toState);
+        }
+    );
+
+    $rootScope.$on('$stateChangeSuccess',
+        function (event, toState, toParams, fromParams) {
+            console.log('event changed!');
+        }
+    );
+
     $scope.pessoa = {};
     $scope.pessoa.nome = '';
     $scope.pessoa.sobrenome = '';
@@ -23,9 +36,9 @@ function BootstrapCtrl($scope, $growl) {
         data: 'pessoas',
         columnDefs: [
             { name: 'Nome', field: 'nome', cellTemplate: 'cellTamplate.html' },
-            { name: 'Sobrenome', field: 'sobrenome' },
+            { name: 'Sobrenome', field: 'sobrenome', cellTemplate: 'cellTamplate.html' },
             { name: 'Data de Nascimento', cellTemplate: 'cellTamplateData.html' },
-            { name: 'Sexo', field: 'sexo' },
+            { name: 'Sexo', field: 'sexo', cellTemplate: 'cellTamplate.html' },
             { name: 'Ações', cellTemplate: 'cellTamplateButton.html' }
         ],
         enableRowSelection: true,
@@ -50,7 +63,13 @@ function BootstrapCtrl($scope, $growl) {
             return;
         }
 
-        $scope.pessoas.push($scope.pessoa);
+        var index = $scope.pessoas.indexOf($scope.pessoa);
+        if (index < 0) {
+            $scope.pessoas.push($scope.pessoa);
+        } else {
+            $scope.pessoas[index] = $scope.pessoa;
+        }
+
         $scope.limpar();
     };
 
