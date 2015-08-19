@@ -8,7 +8,8 @@ angular.module('bootstrapApp', ['ngMessages',
                                 'ui.grid',
                                 'ui.grid.resizeColumns',
                                 'ui.grid.selection',
-                                'oc.lazyLoad'])
+                                'oc.lazyLoad',
+                                'oobj-directives'])
     .config(config);
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];

@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
         concat: {
             principal: {
-                src: ['app/js/app-config.js', 'app/js/bootstrap-controller.js'],
+                src: ['app/js/app-config-bootstrap.js', 'app/js/bootstrap-controller.js'],
                 dest: 'build/js/principal.js'
             }
         },
@@ -59,8 +59,45 @@ module.exports = function(grunt) {
                     }
                 ]
             }
+        },
+
+        uglify: {
+            build: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['build/**/*.js']
+                    }
+                ]
+            }
+        },
+
+        cssmin: {
+            build: {
+                files: [
+                    {
+                        expand: true,
+                        src: ['build/**/*.css']
+                    }
+                ]
+            }
+        },
+
+        htmlmin: {
+            build: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [
+                    {
+                        expand: true,
+                        src: ['build/**/*.html']
+                    }
+                ]
+            }
         }
     });
 
-    grunt.registerTask('build', ['clean', 'copy', 'concat', 'ngAnnotate']);
+    grunt.registerTask('build', ['clean', 'copy', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'htmlmin']);
 };
