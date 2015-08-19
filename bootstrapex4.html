@@ -29,8 +29,8 @@
     <script src="app/directives/oobj-directives.js"></script>
     <script src="app/js/app-config-bootstrap.js"></script>
     <script src="app/js/bootstrap-ctrl.js"></script>
+    <script src="app/directives/oobj-text-input/oobj-text-input.js"></script>
     <script src="app/directives/hello-world/hello-world.js"></script>
-    <script src="app/directives/text-input/text-input.js"></script>
 
     <script src="//localhost:35729/livereload.js"></script>
 </head>
@@ -52,8 +52,8 @@
     <hello-world></hello-world>
 
     <div class="row">
-        <text-input ng-model="pessoa.nome" label="Nome" ng-required="true" colspan="7"></text-input>
-        <text-input ng-model="pessoa.sobrenome" label="Sobrenome" ng-required="true" colspan="5"></text-input>
+        <oobj-text-input ng-model="pessoa.nome" label="Nome" ng-required="true" colspan="7"></oobj-text-input>
+        <oobj-text-input ng-model="pessoa.sobrenome" label="Sobrenome" ng-required="true" colspan="5"></oobj-text-input>
     </div>
 
     {{ pessoa }}
