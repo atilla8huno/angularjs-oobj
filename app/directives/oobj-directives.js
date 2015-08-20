@@ -1,1 +1,1 @@
-angular.module('oobj-directives', ['ngMaterial']);
+angular.module('oobj-directives', ['ngMaterial', 'ui.calendar']);

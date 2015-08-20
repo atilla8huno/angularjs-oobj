@@ -12,10 +12,11 @@ angular.module('bootstrapApp', ['ngMessages',
                                 'oobj-directives'])
     .config(config);
 
-config.$inject = ['$stateProvider', '$urlRouterProvider'];
+config.$inject = ['$stateProvider', '$urlRouterProvider', '$mdThemingProvider'];
 
-function config($stateProvider, $urlRouterProvider) {
+function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
+    $mdThemingProvider.theme('green').primaryPalette('green');
 
     var home = {
         url: '/',

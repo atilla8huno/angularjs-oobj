@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="app/css/layout.css"/>
+    <link rel="stylesheet" href="app/css/app.css"/>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
@@ -31,15 +33,17 @@
     <script src="app/js/bootstrap-ctrl.js"></script>
     <script src="app/directives/oobj-crud/oobj-crud.js"></script>
     <script src="app/directives/oobj-text-input/oobj-text-input.js"></script>
+    <script src="app/directives/oobj-calendar/oobj-calendar.js"></script>
     <script src="app/directives/hello-world/hello-world.js"></script>
+    <script src="app/directives/oobj-select/oobj-select.js"></script>
 
     <script src="//localhost:35729/livereload.js"></script>
 </head>
 
 <body ng-app="bootstrapApp">
 
-    <div class="container" ng-controller="BootstrapCtrl">
-        <md-toolbar class="md-toolbar-tools">
+    <md-card style="padding: 15px">
+        <div class="container" ng-controller="BootstrapCtrl" md-theme="green">
             <ul class="nav nav-pills">
                 <li><a ui-sref="home">Home</a></li>
                 <li><a ui-sref="produto.cadastro({ id: 10 })">Cadastro de Produtos</a></li>
@@ -47,11 +51,10 @@
                 <li><a ui-sref="pessoa.cadastro">Cadastro de Pessoas</a></li>
                 <li><a ui-sref="pessoa.pesquisa">Pesquisa de Pessoas</a></li>
             </ul>
-        </md-toolbar>
-    </div>
 
-    <div ui-view>
-    </div>
-
+            <div ui-view>
+            </div>
+        </div>
+    </md-card>
 </body>
 </html>

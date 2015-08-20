@@ -1,0 +1,10 @@
+<div class="classSelect">
+    <md-input-container>
+        <label ng-bind="label"></label>
+        <md-select ng-model="ngModel">
+            <md-option ng-repeat="item in itens" value="item">
+                <div ng-bind="itemLabel()"></div>
+            </md-option>
+        </md-select>
+    </md-input-container>
+</div>
