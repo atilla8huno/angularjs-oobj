@@ -15,7 +15,7 @@ function select($rootScope) {
             ngModel: '=',
             colspan: '@',
             itens: '=',
-            itemLabel: '&'
+            itemLabel: '@'
         },
         link: function($scope, element, attrs) {
             $scope.classSelect = 'col-sm-3';

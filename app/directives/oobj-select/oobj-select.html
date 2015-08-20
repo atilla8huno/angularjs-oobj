@@ -2,8 +2,8 @@
     <md-input-container>
         <label ng-bind="label"></label>
         <md-select ng-model="ngModel">
-            <md-option ng-repeat="item in itens" value="item">
-                <div ng-bind="itemLabel()"></div>
+            <md-option ng-repeat="item in itens" ng-value="item">
+                <span ng-bind="item[itemLabel]"></span>
             </md-option>
         </md-select>
     </md-input-container>

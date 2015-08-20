@@ -9,30 +9,15 @@ CadastroPessoaController.$inject = ['$scope'];
 function CadastroPessoaController($scope) {
 
     $scope.pessoa = {};
-    $scope.pessoa.dataNascimento = {};
-    $scope.pessoa.cidade = {};
 
     $scope.cidades = [
-        {
-            nome: 'Goiânia',
-            estado: 'GO'
-        },
-        {
-            nome: 'Uberlândia',
-            estado: 'MG'
-        },
-        {
-            nome: 'Florianópolis',
-            estado: 'SC'
-        }
+        {nome: "Goiânia", estado: "GO"},
+        {nome: "Uberlândia", estado: "MG"},
+        {nome: "Florianópolis", estado: "SC"}
     ];
 
-    $scope.label = function() {
-        return
-    };
-
     $scope.$on('salvar', function(event, data) {
-        alert('Salvou!');
+        console.log($scope.pessoa);
     });
 
     $scope.$on('excluir', function(event, data) {
@@ -44,7 +29,6 @@ function CadastroPessoaController($scope) {
     });
 
     $scope.salvar = function() {
-        alert(pessoa.dataNascimento);
     };
 
     $scope.excluir = function() {
